@@ -1,0 +1,274 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  /* Prevent font scaling in landscape */
+
+  -webkit-text-size-adjust: none;
+  /*Chrome, Safari, newer versions of Opera*/
+
+  -moz-text-size-adjust: none;
+  /*Firefox*/
+
+  -ms-text-size-adjust: none;
+  /*Ie*/
+
+  -o-text-size-adjust: none;
+  /*old versions of Opera*/
+
+  scroll-behavior: smooth;
+  /* 스크롤이 부드럽게 해주는 속성 */
+}
+
+
+
+body {
+  font-family: "Buda", serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #111;
+}
+
+#wrap {
+  min-width: 1360px;
+
+}
+
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* 콘텐츠보다 위에 표시 */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+
+}
+
+.bg1 {
+  height: 100px;
+  background-color: #E3DBCC;
+  /* 이미지에 사용된 베이지 톤 배경색 */
+  transition: all 0.5s ease;
+}
+
+/* 스크롤 했을 때 바뀔 배경색, 높이값 */
+/* 제이쿼리로 해당 클래스를 추가해 줄 것임. */
+.header_scrolled {
+  height: 80px;
+  background-color: #D8C8C7;
+}
+
+.header_container {
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+
+
+}
+
+.gnb {
+  display: flex;
+  gap: 20px;
+}
+
+.util {
+  display: flex;
+  gap: 20px;
+  padding: 0 5px;
+}
+
+.logo img {
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+
+/* 메인 컨테이너 레이아웃 (좌우 배치) */
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 100px;
+  max-width: 1360px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+
+
+/* ====================================
+   좌측 슬라이더 스타일 (800px x 934px)
+   ==================================== */
+.swiper {
+  width: 600px;
+  height: 800px;
+  padding-top: 50px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.autoplay-progress svg {
+  position: none;
+ 
+
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sticky {
+  position: sticky;
+}
+
+
+
+
+/* ====================================
+   detail_img (800px)
+   ==================================== */
+.detail_img {
+  width: 800px;
+  padding-top: 100px;
+
+}
+
+.detail_img img {
+  display: block;
+}
+
+
+
+/* ====================================
+   우측 Sticky 금액 상자 (365px x 600px)
+   ==================================== */
+.product-info-sticky {
+  width: 365px;
+  height: 600px;
+  position: sticky;
+  top: 180px;
+  /* 스크롤 시 화면 상단에서 40px 위치에 고정 */
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-title,
+.total-price-row,
+.accordion-menu {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.price-box {
+  margin-bottom: 20px;
+}
+
+.color-options {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.color-chip {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.brown {
+  background-color: #4a2c24;
+}
+
+.total-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.total-price {
+  font-size: 18px;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-cart {
+  background-color: #fff;
+  border: 1px solid #ddd;
+
+}
+
+.btn-buy {
+  background-color: #3b2a26;
+  color: #fff;
+}
+
+.accordion-menu {
+  list-style: none;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.accordion-menu li {
+  padding: 8px 0;
+  font-size: 16px;
+  font-weight: 300;
+  border-bottom: 1px solid #f9f9f9;
+}
