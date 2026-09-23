@@ -35,7 +35,7 @@ html {
 
 
 body {
-  font-family: "Buda", serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 20px;
   line-height: 1.5;
   color: #111;
@@ -73,7 +73,12 @@ body {
   background-color: #D8C8C7;
 }
 
+
 .header_container {
+  font-family: "Buda", serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #111;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -142,7 +147,7 @@ body {
 
 .autoplay-progress svg {
   position: none;
- 
+
 
 }
 

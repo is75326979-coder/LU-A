@@ -136,6 +136,7 @@ body {
 }
 
 .gnb {
+    
     display: flex;
     gap: 20px;
 }
@@ -155,7 +156,6 @@ body {
 
 /* 메인 배너 */
 #banner {
-
     margin: 0 auto;
     overflow: hidden;
     border-radius: 0;

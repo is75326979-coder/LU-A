@@ -1,0 +1,528 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  /* Prevent font scaling in landscape */
+
+  -webkit-text-size-adjust: none;
+  /*Chrome, Safari, newer versions of Opera*/
+
+  -moz-text-size-adjust: none;
+  /*Firefox*/
+
+  -ms-text-size-adjust: none;
+  /*Ie*/
+
+  -o-text-size-adjust: none;
+  /*old versions of Opera*/
+
+  scroll-behavior: smooth;
+  /* 스크롤이 부드럽게 해주는 속성 */
+}
+
+
+
+body {
+  font-family: "Buda", serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #111;
+}
+
+#wrap {
+  min-width: 1360px;
+
+}
+
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* 콘텐츠보다 위에 표시 */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+
+}
+
+.bg1 {
+  height: 100px;
+  background-color: #E3DBCC;
+  /* 이미지에 사용된 베이지 톤 배경색 */
+  transition: all 0.5s ease;
+}
+
+/* 스크롤 했을 때 바뀔 배경색, 높이값 */
+/* 제이쿼리로 해당 클래스를 추가해 줄 것임. */
+.header_scrolled {
+  height: 80px;
+  background-color: #D8C8C7;
+}
+
+.header_container {
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+
+
+}
+
+.gnb {
+  display: flex;
+  gap: 20px;
+}
+
+.util {
+  display: flex;
+  gap: 20px;
+  padding: 0 5px;
+}
+
+.logo img {
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+
+
+/* 전체 섹션 설정 (높이 800px 설정) */
+.brand-section {
+  width: 100%;
+  height: 800px;
+  display: flex;
+  align-items: center;
+  /* 수직 중앙 정렬 */
+  justify-content: center;
+}
+
+/* 레이아웃 컨테이너 (최대 너비 및 플렉스 레이아웃) */
+.brand-container {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 150px 20px;
+  display: flex;
+  justify-content: space-between;
+  /* 좌우 배치 */
+  align-items: center;
+}
+
+/* 텍스트 영역 스타일 */
+.text-area {
+
+  padding-right: 40px;
+}
+
+.text-area .sub-title {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  letter-spacing: 0.5px;
+}
+
+.text-area .main-title {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.text-area .description {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 이미지 영역 스타일 (너비 465px, 높이 585px) */
+.image-area {
+  width: 465px;
+  height: 585px;
+  flex-shrink: 0;
+  /* 이미지 크기가 고정되도록 설정 */
+
+}
+
+.image-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 비율을 유지하면서 이미지 상자에 맞춤 */
+  display: block;
+}
+
+/* 메인 배너 전체 컨테이너 */
+#main_banner {
+  position: relative; /* 자식 요소들의 position: absolute 기준점 */
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 150px;
+  overflow: hidden;
+}
+
+/* 배경 이미지 */
+#main_banner .bg_img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 1. 왼쪽 첫 번째 이미지 (신발/가방 연출 컷) */
+#main_banner .banner_img .img_left {
+  position: absolute;
+  top: 20%;        /* 위에서부터의 위치 (%) */
+  left: 6.5%;      /* 왼쪽에서부터의 위치 (%) */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 필요 시 은은한 그림자 효과 */
+}
+
+/* 2. 가운데 두 번째 이미지 (꽃 다발 컷) */
+#main_banner .banner_img .img_center {
+  position: absolute;
+  top: 30%;        /* 위에서부터의 위치 (%) */
+  left: 32.5%;     /* 왼쪽에서부터의 위치 (%) */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#brandstory_main {
+  width: 1280px;
+  margin: 0 auto;
+  padding-top: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+
+}
+
+.txt-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: left;
+  position: absolute;
+  bottom: 10px;
+  right: 700px;
+}
+
+.txt1 {
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+
+}
+
+.txt2 {
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+}
+
+.img-box {
+  width: 100%;
+  max-width: 680px;
+  /* 855px 비율 기준 적절한 가로 너비 설정 */
+  aspect-ratio: 855 / 1200;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  #brandstory_main {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .txt-box {
+    writing-mode: horizontal-tb;
+    transform: none;
+    text-align: center;
+  }
+
+  .img-box {
+    max-width: 100%;
+  }
+}
+
+#brandstory_img {
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 슬라이드 트랙 설정 (무한 애니메이션) */
+.track {
+  display: flex;
+  width: max-content;
+}
+
+/* 이미지 리스트 (지그재그 배치를 위한 Flex & Height 설정) */
+.list {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  padding-right: 30px;
+  height: 680px;
+  /* 지그재그 여유 높이 */
+}
+
+/* 각 리스트 아이템 기본 스타일 */
+.item {
+  flex-shrink: 0;
+  width: 335px;
+  height: 430px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* 이미지 속성 설정 (335 / 530 비율 유지) */
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 지그재그(Staggered) 위치 정렬 - 사진마다 다른 y축 배치 */
+.item:nth-child(5n+1) {
+  align-self: flex-start;
+  transform: translateY(-20px)
+}
+
+.item:nth-child(5n+2) {
+  align-self: center;
+  transform: translateY(20px);
+}
+
+.item:nth-child(5n+3) {
+  align-self: flex-start;
+  transform: translateY(-20px)
+}
+
+.item:nth-child(5n+4) {
+  align-self:center;
+  transform: translateY(20px);
+}
+
+.item:nth-child(5n+5) {
+  align-self: flex-start;
+  transform: translateY(-20px)
+}
+
+.item:nth-child(5n+6) {
+  align-self: center;
+  transform: translateY(20px)
+}
+
+/* 무한 흘러가는 애니메이션 키프레임 */
+@keyframes roll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate {
+  animation: roll 25s linear infinite;
+}
+
+
+
+
+/* Footer Container */
+.footer {
+    background-color: #333333;
+    color: #d1d1d1;
+    padding: 40px 20px 50px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.ft-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo Styling */
+.ft-logo {
+    font-size: 80px;
+    letter-spacing: 5px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Navigation Menu with Pseudo-element Dividers */
+.ft-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 28px 0;
+    flex-wrap: wrap;
+}
+
+.ft-menu li {
+    position: relative;
+    padding: 0 16px;
+}
+
+/* Vertical Line Divider using position: absolute */
+.ft-menu li::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 60%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.ft-menu li:last-child::after {
+    display: none;
+}
+
+.ft-menu a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 300;
+    transition: color 0.2s ease;
+}
+
+.ft-menu a:hover {
+    color: #ffffff;
+}
+
+
+.item-info,
+.ft-info,
+.ft-menu {
+    font-family: "Noto Sans KR", sans-serif;
+}
+/* Customer Center Info */
+.ft-info {
+    text-align: center;
+    font-size: 12px;
+    color: #999999;
+    line-height: 1.8;
+}
+
+.ft-info .title {
+    color: #e5e5e5;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.ft-info .hours {
+    margin-bottom: 6px;
+    font-weight: 300;
+}
+
+.ft-info .phone {
+    font-family: 'Cinzel', 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+/* Social SNS Icons (Positioned at right) */
+.ft-sns {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 16px;
+}
+
+.ft-sns a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: #cccccc;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.ft-sns a:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.ft-sns svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ft-inner {
+        padding-top: 30px;
+    }
+
+    .ft-sns {
+
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-bottom: 24px;
+        order: -1;
+    }
+
+    .ft-logo {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .ft-menu {
+        margin-bottom: 20px;
+    }
+
+    .ft-menu li {
+        padding: 0 10px;
+    }
+}

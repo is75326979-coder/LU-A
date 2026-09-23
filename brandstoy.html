@@ -1,11 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>brandstory</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+
+    <!-- webfont 연결-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Noto+Sans+KR:wght@100..900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- aos 연결 -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- css 연결-->
+    <link rel="stylesheet" href="css/brandstory.css">
 </head>
+
 <body>
-    
+
+    <div id="wrap">
+        <div id="header" class="bg1">
+            <div class="header_container">
+                <ul class="gnb">
+                    <li><a href="./brandstoy.html">Brandstory</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="./sub.html">shop</a></li>
+                </ul>
+
+                <h1 class="logo"><a href="./index.html"><img src="./images/logo.png" alt="logo"></a></h1>
+
+                <ul class="util">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Wish</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="brand-section">
+            <div class="brand-container">
+
+                <!-- 좌측 텍스트 영역 -->
+                <div class="text-area">
+                    <h3 class="sub-title">Brandstory</h3>
+                    <h2 class="main-title">당신의 새로운 시작을 위해</h2>
+                    <p class="description">
+                        루아는 당신의 첫 걸음, 새로운 시작을 응원합니다.<br>
+                        처음이라 조금 서툴러도 괜찮습니다.<br>
+                        완벽하지 않아도, 나다운 모습이면 충분하니까요.<br>
+                        루아는 편안함과 스타일 사이에서<br>
+                        오늘의 당신에게 가장 자연스러운 옷을 제안합니다.
+                    </p>
+                </div>
+
+                <!-- 우측 이미지 영역 -->
+                <div class="image-area">
+                    <img src="./images/brandstory/barandstory_main1.jpeg" alt="Brandstory Image">
+                </div>
+
+            </div>
+        </div>
+
+        <div id="main_banner">
+            <img src="./images/brandstory/brandstory_banner.jpg" alt="main_banner" class="bg_img" >
+
+            <div class="banner_img">
+                <img src="./images/brandstory/brandstory_banner2.jpg" alt="왼쪽 이미지" class="img_left" data-aos="fade-up"
+                    data-aos-duration="1500">
+                <img src="./images/brandstory/brandstory_banner1.jpg" alt="중앙 이미지" class="img_center"
+                    data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            </div>
+
+        </div>
+
+
+        <div id="brandstory_main" >
+            <div class="txt-box" >
+                <p class="txt1">Your first step, beautifully dressed</p>
+                <p class="txt2">Where every beginning becomes beautiful</p>
+            </div>
+            <div class="img-box" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom" data-aos-duration="3000">
+                <img src="./images/brandstory/brandstory_main.jpeg" alt="main">
+            </div>
+        </div>
+
+
+        <div id="brandstory_img">
+            <div class="track animate" id="track">
+                <ul class="list" id="list">
+                    <li class="item">
+                        <img src="./images/brandstory/brandstory_img_1.jpeg" alt="Look 1">
+                    </li>
+                    <li class="item">
+                        <img src="./images/brandstory/brandstory_img_2.jpg" alt="Look 2">
+                    </li>
+                    <li class="item">
+                        <img src="./images/brandstory/brandstory_img_3.png" alt="Look 3">
+                    </li>
+                    <li class="item">
+                        <img src="./images/brandstory/brandstory_img_4.jpeg" alt="Look 4">
+                    </li>
+                    <li class="item">
+                        <img src="./images/brandstory/brandstory_img_5.jpeg" alt="Look 5">
+                    </li>
+                    <li class="item">
+                        <img src="./images/brandstory/brnadstory_img6.jpeg" alt="Look 6">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <!-- MAIN FOOTER COMPONENT -->
+        <footer class="footer">
+            <div class="ft-inner">
+
+                <!-- Brand Logo -->
+                <a href="#" class="ft-logo">LU:A</a>
+
+                <!-- Navigation Menu (Flex & CSS Position Divider) -->
+                <ul class="ft-menu">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">개인정보 처리방침</a></li>
+                    <li><a href="#">공지사항</a></li>
+                </ul>
+
+                <!-- Customer Service Info -->
+                <div class="ft-info">
+                    <div class="title">고객센터</div>
+                    <div class="hours">상담시간 09:00 ~ 18:00<br class="sm:hidden">(토/일/공휴일 휴무)</div>
+                    <div class="phone">080 123 4567</div>
+                </div>
+
+                <!-- Social Media Icons (Flex Layout) -->
+                <ul class="ft-sns">
+                    <!-- KakaoTalk Icon -->
+                    <li>
+                        <a href="#" aria-label="KakaoTalk">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 3C6.477 3 2 6.477 2 10.765c0 2.768 1.838 5.196 4.606 6.556-.202.756-.732 2.738-.838 3.166-.134.542.198.535.418.39 1.737-1.15 4.026-2.673 4.665-3.111.373.051.756.079 1.149.079 5.523 0 10-3.477 10-7.765C22 6.477 17.523 3 12 3z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <!-- Email Icon -->
+                    <li>
+                        <a href="#" aria-label="Email">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
+                        </a>
+                        <!-- Instagram Icon -->
+                    <li>
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </footer>
+
+
+
+
+    </div>
+
+    <!-- jQuery 오픈소스 연결 -->
+    <script src="js/jquery-4.0.0.min.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+        // 코드실행
+        $(function () {
+
+            // 윈도우 스크롤 시 실행
+            $(window).scroll(function () {
+
+                // 스크롤 위치가 100px을 넘으면,
+                if ($(this).scrollTop() > 100) {
+
+                    // .header_scrolled 클래스가 추가된다.
+                    $(".bg1").addClass("header_scrolled");
+                } else {
+                    // 스크롤이 위로 올라가면 클래스 제거
+                    $(".bg1").removeClass("header_scrolled");
+                }
+            });
+
+            // 마우스를 올렸을 때(hover 시)
+            $(".bg1").hover(function () {
+
+                // header_scrolled 클래스 제거
+                $(this).removeClass("header_scrolled");
+            },
+                // 마우스가 나갔을 때 실행할 로직을 따로 정의
+                // hover는 들어올 때/ 나갈 때 동작이 다르기 때문에, 각각의 동작을 처리하려고 function 실행문을 두개 쓰는 것이다.
+                function () {
+                    // 마우스가 나갔을 때, 스크롤 위치가 100px 이상이면 다시 header_scrolled 클래스를 추가한다.
+                    if ($(window).scrollTop() > 100) {
+                        $(this).addClass("header_scrolled");
+                    }
+                }
+            );
+        });
+    </script>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        // 복제 JS로 끊김 없는 무한 스크롤 구현
+        window.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('track');
+            const list = document.getElementById('list');
+
+            // 기존 리스트를 복제하여 뒤에 부착 (Seamless Infinite Loop)
+            const cloneList = list.cloneNode(true);
+            track.appendChild(cloneList);
+        });
+    </script>
 </body>
+
 </html>
