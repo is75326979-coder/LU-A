@@ -38,7 +38,7 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 20px;
   line-height: 1.5;
-  color: #111;
+  color: #383938;
 }
 
 #wrap {
@@ -102,8 +102,8 @@ body {
 
 .logo img {
   display: block;
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
 }
 
 /* 메인 컨테이너 레이아웃 (좌우 배치) */

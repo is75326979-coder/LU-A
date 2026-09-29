@@ -38,7 +38,7 @@ body {
   font-family: "Buda", serif;
   font-size: 20px;
   line-height: 1.5;
-  color: #111;
+  color: #383938;
 }
 
 #wrap {
@@ -97,8 +97,8 @@ body {
 
 .logo img {
   display: block;
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
 }
 
 
@@ -150,7 +150,6 @@ body {
 /* 이미지 영역 스타일 (너비 465px, 높이 585px) */
 .image-area {
   width: 465px;
-  height: 585px;
   flex-shrink: 0;
   /* 이미지 크기가 고정되도록 설정 */
 

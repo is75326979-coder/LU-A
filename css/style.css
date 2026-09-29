@@ -80,7 +80,7 @@ body {
     font-family: "Buda", serif;
     font-size: 20px;
     line-height: 1.5;
-    color: #111;
+    color: #383938;
 }
 
 #wrap {
@@ -149,8 +149,8 @@ body {
 
 .logo img {
     display: block;
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
 }
 
 
@@ -262,7 +262,6 @@ body {
 .new_img li a {
     display: block;
     text-decoration: none;
-    color: #222;
     text-align: center;
 }
 
