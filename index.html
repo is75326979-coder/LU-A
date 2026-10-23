@@ -114,31 +114,36 @@
 
         </div>
 
-        <div id="video">
-            <!-- 상단 타이틀 영역 -->
+        <section id="video">
             <h2 class="span">LU:A TV</h2>
 
-            <!-- 슬라이더 트랙 컨테이너 -->
-            <div class="slider-wrap ">
-                <div class="track">
-                    <!-- 이전/서브 슬라이드 -->
-                    <div class="slide prev">
-                        <video src="./images/vidio/1015.mp4" muted loop autoplay></video>
+            <div class="video-window">
+                <div class="video-track">
+
+                    <!-- 영상 1 -->
+                    <div class="video-slide">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="./images/vidio/1015.mp4" type="video/mp4">
+                        </video>
                     </div>
 
-                    <!-- 메인(중앙) 슬라이드 -->
-                    <div class="slide active">
-                        <video src="./images/vidio/1012 (1)(1).mp4" controls autoplay></video>
+                    <!-- 영상 2 -->
+                    <div class="video-slide active">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="./images/vidio/1012 (1)(1).mp4" type="video/mp4">
+                        </video>
                     </div>
 
-                    <!-- 다음/서브 슬라이드 -->
-                    <div class="slide next">
-                        <video src="./images/vidio/Woman_walking_across_plaza_20261001152954.mp4" muted loop
-                            autoplay></video>
+                    <!-- 영상 3 -->
+                    <div class="video-slide">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="./images/vidio/Woman_walking_across_plaza_20261001152954.mp4" type="video/mp4">
+                        </video>
                     </div>
+
                 </div>
             </div>
-        </div>
+        </section>
 
 
         <div id="slider">
@@ -387,6 +392,7 @@
     <!-- jQuery 오픈소스 연결 -->
     <script src="js/jquery-4.0.0.min.js"></script>
 
+
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
@@ -452,63 +458,165 @@
         });
     </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const videoSwiper = new Swiper('.slider-wrap', {
-                wrapperClass: 'track',
-                slideClass: 'slide',
 
-                centeredSlides: true,
-                slidesPerView: 'auto',
-                spaceBetween: 30,
+<script>
+    
+$(function () {
+  const $window = $("#video .video-window");
+  const $track = $("#video .video-track");
+  const $slides = $("#video .video-slide");
 
-                grabCursor: true,
+  let currentIndex = 1;
+  let startX = 0;
+  let startLeft = 0;
+  let isDragging = false;
+  let hasMoved = false;
 
-                loop:true,
+  const sideWidth = 860;
+  const centerWidth = 975;
+  const gap = 14;
 
-                // 마우스 드래그 및 터치 지원
-                touchRatio: 1,
+  // 목표 영상 크기를 기준으로 중앙 위치 계산
+  function getCenterLeft(index) {
+    let left = 0;
 
-                // 이벤트 리스너
-                on: {
-                    init: function () {
-                        handleVideoState(this);
-                    },
-                    // 슬라이드 이동 시작할 때 또는 이동이 끝났을 때 동작
-                    slideChangeTransitionEnd: function () {
-                        handleVideoState(this);
-                    }
-                }
-            });
+    for (let i = 0; i < index; i++) {
+      left += (i === index - 1 ? centerWidth : sideWidth) + gap;
+    }
 
-            // 메인과 서브 동영상 제어 함수
-            function handleVideoState(swiper) {
-                swiper.slides.forEach((slide, index) => {
-                    const video = slide.querySelector('video');
-                    if (!video) return;
+    const targetWidth = centerWidth;
 
-                    // 메인(현재 활성화된) 슬라이드인 경우
-                    if (index === swiper.activeIndex) {
-                        video.currentTime = 0; // 영상 처음부터 재생
-                        const playPromise = video.play();
-                        if (playPromise !== undefined) {
-                            playPromise.catch(() => {
-                                // 브라우저의 자동재생 제한(Autoplay policy) 대응
-                                video.muted = true;
-                                video.play();
-                            });
-                        }
-                    }
-                    // 서브 위치로 빠진 슬라이드인 경우
-                    else {
-                        video.pause();       // 재생 정지
-                        video.currentTime = 0; // 재생 시간을 처음으로 리셋
-                    }
-                });
-            }
-        });
-    </script>
+    return $window.width() / 2 - left - targetWidth / 2;
+  }
 
+  // 중앙 영상만 재생
+  function playActiveVideo() {
+    $slides.each(function (index) {
+      const video = $(this).find("video")[0];
+
+      if (!video) return;
+
+      if (index === currentIndex) {
+        video.muted = true;
+
+        const playPromise = video.play();
+
+        if (playPromise !== undefined) {
+          playPromise.catch(function () {
+            // 브라우저에서 재생이 제한되면 영상은 일시정지 상태 유지
+          });
+        }
+      } else {
+        video.pause();
+      }
+    });
+  }
+
+  // 슬라이드 업데이트
+  function updateSlider(animate = true) {
+    $slides.removeClass("active");
+    $slides.eq(currentIndex).addClass("active");
+
+    const targetLeft = getCenterLeft(currentIndex);
+
+    $track.stop(true).animate(
+      { left: targetLeft },
+      animate ? 650 : 0,
+      "swing"
+    );
+
+    playActiveVideo();
+  }
+
+  // 드래그 시작
+  function startDrag(x) {
+    startX = x;
+    startLeft = parseFloat($track.css("left")) || 0;
+    isDragging = true;
+    hasMoved = false;
+
+    $track.stop(true);
+  }
+
+  // 드래그 중
+  function moveDrag(x) {
+    if (!isDragging) return;
+
+    const deltaX = x - startX;
+
+    if (Math.abs(deltaX) > 4) {
+      hasMoved = true;
+    }
+
+    const minLeft = getCenterLeft($slides.length - 1);
+    const maxLeft = getCenterLeft(0);
+
+    const nextLeft = Math.max(
+      minLeft,
+      Math.min(maxLeft, startLeft + deltaX)
+    );
+
+    $track.css("left", nextLeft);
+  }
+
+  // 드래그 종료
+  function endDrag() {
+    if (!isDragging) return;
+
+    isDragging = false;
+
+    const currentLeft = parseFloat($track.css("left")) || 0;
+    const distance = currentLeft - startLeft;
+
+    if (hasMoved && Math.abs(distance) > 150) {
+      if (distance < 0) {
+        currentIndex = Math.min(
+          currentIndex + 1,
+          $slides.length - 1
+        );
+      } else {
+        currentIndex = Math.max(currentIndex - 1, 0);
+      }
+    }
+
+    updateSlider(true);
+  }
+
+  // 마우스 드래그
+  $window.on("mousedown", function (e) {
+    if (e.button !== 0) return;
+
+    startDrag(e.pageX);
+  });
+
+  $(document).on("mousemove", function (e) {
+    moveDrag(e.pageX);
+  });
+
+  $(document).on("mouseup", endDrag);
+
+  // 모바일 터치
+  $window.on("touchstart", function (e) {
+    const touch = e.originalEvent.touches[0];
+
+    startDrag(touch.pageX);
+  });
+
+  $window.on("touchmove", function (e) {
+    if (!isDragging) return;
+
+    const touch = e.originalEvent.touches[0];
+
+    moveDrag(touch.pageX);
+  });
+
+  $window.on("touchend touchcancel", endDrag);
+
+  // 첫 화면 설정
+  updateSlider(false);
+});
+
+</script>
 
 
 

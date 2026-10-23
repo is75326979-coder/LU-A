@@ -289,99 +289,108 @@ body {
     font-size: 13px;
 }
 
-/* 전체 동영상 레이어 섹션 (1920px * 874px) */
+/* LU:A TV 전체 영역 */
 #video {
-  position: relative;
-  height: 700px;
-  background-color: #000;
-  margin: 0 auto;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-
-/* Swiper 컨테이너 영역 */
-#video .slider-wrap {
-  position: relative;
   width: 100%;
-  height: 540px; /* 메인 영상 높이에 맞춤 */
+  max-width: 1920px;
+  height: 800px;
+  margin: 0 auto;
+  background: #000;
   overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  color: #fff;
 }
 
-/* 슬라이드 트랙 (Swiper Wrapper) */
-#video .track {
-  display: flex;
-  align-items: center;
-  height: 100%;
+
+/* LU:A TV */
+#video {
+  width: 1920px;
+  height: 800px;
+  margin: 0 auto;
+  background: #000;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-/* 슬라이드 공통 스타일 (기본 서브 크기: 858px * 484px) */
-#video .slide {
-  flex-shrink: 0;
-  width: 858px;
-  height: 484px;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  opacity: 0.6; /* 서브 상태일 때 딤 처리 */
-  transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+/* 타이틀 */
+#video .span {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: "Buda", serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #d8c9c1;
+  z-index: 5;
 }
 
-#video .slide video {
+/* 영상 영역 */
+#video .video-window {
+  width: 1920px;
+  height: 550px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+
+/* 슬라이드 트랙 */
+#video .video-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: max-content;
+  height: 100%;
+}
+
+/* 양옆 영상 */
+#video .video-slide {
+  flex: 0 0 860px;
+  width: 860px;
+  height: 482px;
+  overflow: hidden;
+  opacity: 0.45;
+  transition:
+    width 0.65s ease,
+    height 0.65s ease,
+    opacity 0.65s ease;
+}
+
+/* 중앙 영상 */
+#video .video-slide.active {
+  flex-basis: 975px;
+  width: 975px;
+  height: 550px;
+  opacity: 1;
+}
+
+/* 영상 */
+#video .video-slide video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  pointer-events: none;
 }
 
-/* Swiper가 중앙(메인)에 위치시킨 슬라이드 (크기: 950px * 540px) */
-#video .slide.swiper-slide-active,
-#video .slide.active {
-  width: 950px !important;
-  height: 540px !important;
-  opacity: 1; /* 메인일 때 선명하게 */
-  z-index: 3;
-}
 
-/* 좌측 서브 슬라이드 */
-#video .slide.swiper-slide-prev {
-  opacity: 0.6;
-  z-index: 2;
-}
 
-/* 우측 서브 슬라이드 */
-#video .slide.swiper-slide-next {
-  opacity: 0.6;
-  z-index: 2;
-}
-
-/* 이전 서브 동영상 (좌측: 858px * 484px) */
-#video .slide.prev {
-  width: 858px;
-  height: 484px;
-  left: calc(50% - 950px); /* 메인 동영상 좌측 배치 */
-  z-index: 2;
-  opacity: 0.6; /* 딤 처리 효과 */
-}
-
-/* 다음 서브 동영상 (우측: 858px * 484px) */
-#video .slide.next {
-  width: 858px;
-  height: 484px;
-  left: calc(50% + 950px - 858px); /* 메인 동영상 우측 배치 */
-  z-index: 2;
-  opacity: 0.6; /* 딤 처리 효과 */
-}
 
 #slider {
     /* position 부모요소/ .swiper의 기준점 */
     position: relative;
-
     background-color: #e5e5e5;
     height: 100px;
     overflow: hidden;
